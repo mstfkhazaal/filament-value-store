@@ -1,29 +1,27 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "mstfkhazaal/filament-value-store",
+    "description": "This is my package filament-value-store",
     "keywords": [
-        ":vendor_name",
+        "mstfkhazaal",
         "laravel",
-        ":package_slug"
+        "filament-value-store"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/mstfkhazaal/filament-value-store",
     "support": {
-        "issues": "https://github.com/:vendor_slug/:package_slug/issues",
-        "source": "https://github.com/:vendor_slug/:package_slug"
+        "issues": "https://github.com/mstfkhazaal/filament-value-store/issues",
+        "source": "https://github.com/mstfkhazaal/filament-value-store"
     },
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "mstfkhazaal",
+            "email": "mstfkhazaal@gmail.com",
             "role": "Developer"
         }
     ],
     "require": {
         "php": "^8.1",
         "filament/filament": "^3.0",
-        "filament/forms": "^3.0",
-        "filament/tables": "^3.0",
         "spatie/laravel-package-tools": "^1.15.0",
         "illuminate/contracts": "^10.0"
     },
@@ -42,13 +40,13 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src/",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories/"
+            "Mstfkhazaal\\FilamentValueStore\\": "src/",
+            "Mstfkhazaal\\FilamentValueStore\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests/"
+            "Mstfkhazaal\\FilamentValueStore\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -68,10 +66,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "Mstfkhazaal\\FilamentValueStore\\FilamentValueStoreServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "FilamentValueStore": "Mstfkhazaal\\FilamentValueStore\\Facades\\FilamentValueStore"
             }
         }
     },
