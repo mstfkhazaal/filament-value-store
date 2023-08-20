@@ -11,11 +11,11 @@ use Filament\Support\Facades\FilamentIcon;
 use Filament\Support\Icons\Icon;
 use Illuminate\Filesystem\Filesystem;
 use Livewire\Features\SupportTesting\Testable;
+use Mstfkhazaal\FilamentValueStore\Commands\FilamentValueStoreCommand;
+use Mstfkhazaal\FilamentValueStore\Testing\TestsFilamentValueStore;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Mstfkhazaal\FilamentValueStore\Commands\FilamentValueStoreCommand;
-use Mstfkhazaal\FilamentValueStore\Testing\TestsFilamentValueStore;
 
 class FilamentValueStoreServiceProvider extends PackageServiceProvider
 {
