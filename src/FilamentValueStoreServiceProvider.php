@@ -2,20 +2,16 @@
 
 namespace Mstfkhazaal\FilamentValueStore;
 
-use Filament\Support\Assets\AlpineComponent;
 use Filament\Support\Assets\Asset;
-use Filament\Support\Assets\Css;
-use Filament\Support\Assets\Js;
 use Filament\Support\Facades\FilamentAsset;
 use Filament\Support\Facades\FilamentIcon;
 use Filament\Support\Icons\Icon;
 use Illuminate\Filesystem\Filesystem;
 use Livewire\Features\SupportTesting\Testable;
+use Mstfkhazaal\FilamentValueStore\Testing\TestsFilamentValueStore;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Mstfkhazaal\FilamentValueStore\Commands\FilamentValueStoreCommand;
-use Mstfkhazaal\FilamentValueStore\Testing\TestsFilamentValueStore;
 
 class FilamentValueStoreServiceProvider extends PackageServiceProvider
 {
@@ -31,7 +27,7 @@ class FilamentValueStoreServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package->name(static::$name)
-            ->hasCommands($this->getCommands())
+            // ->hasCommands($this->getCommands())
             ->hasInstallCommand(function (InstallCommand $command) {
                 $command
                     ->publishConfigFile()
@@ -41,7 +37,6 @@ class FilamentValueStoreServiceProvider extends PackageServiceProvider
             });
 
         $configFileName = $package->shortName();
-
         if (file_exists($package->basePath("/../config/{$configFileName}.php"))) {
             $package->hasConfigFile();
         }
@@ -57,6 +52,16 @@ class FilamentValueStoreServiceProvider extends PackageServiceProvider
         if (file_exists($package->basePath('/../resources/views'))) {
             $package->hasViews(static::$viewNamespace);
         }
+    }
+
+    /**
+     * @return array<string>
+     */
+    protected function getMigrations(): array
+    {
+        return [
+            //  'create_filament-value-store_table',
+        ];
     }
 
     public function packageRegistered(): void
@@ -92,11 +97,6 @@ class FilamentValueStoreServiceProvider extends PackageServiceProvider
         Testable::mixin(new TestsFilamentValueStore());
     }
 
-    protected function getAssetPackageName(): ?string
-    {
-        return 'mstfkhazaal/filament-value-store';
-    }
-
     /**
      * @return array<Asset>
      */
@@ -104,35 +104,14 @@ class FilamentValueStoreServiceProvider extends PackageServiceProvider
     {
         return [
             // AlpineComponent::make('filament-value-store', __DIR__ . '/../resources/dist/components/filament-value-store.js'),
-            Css::make('filament-value-store-styles', __DIR__ . '/../resources/dist/filament-value-store.css'),
-            Js::make('filament-value-store-scripts', __DIR__ . '/../resources/dist/filament-value-store.js'),
+            //Css::make('filament-value-store-styles', __DIR__ . '/../resources/dist/filament-value-store.css'),
+            //Js::make('filament-value-store-scripts', __DIR__ . '/../resources/dist/filament-value-store.js'),
         ];
     }
 
-    /**
-     * @return array<class-string>
-     */
-    protected function getCommands(): array
+    protected function getAssetPackageName(): ?string
     {
-        return [
-            FilamentValueStoreCommand::class,
-        ];
-    }
-
-    /**
-     * @return array<string, Icon>
-     */
-    protected function getIcons(): array
-    {
-        return [];
-    }
-
-    /**
-     * @return array<string>
-     */
-    protected function getRoutes(): array
-    {
-        return [];
+        return 'mstfkhazaal/filament-value-store';
     }
 
     /**
@@ -144,12 +123,28 @@ class FilamentValueStoreServiceProvider extends PackageServiceProvider
     }
 
     /**
-     * @return array<string>
+     * @return array<string, Icon>
      */
-    protected function getMigrations(): array
+    protected function getIcons(): array
+    {
+        return [];
+    }
+
+    /**
+     * @return array<class-string>
+     */
+    protected function getCommands(): array
     {
         return [
-            'create_filament-value-store_table',
+            //FilamentValueStoreCommand::class,
         ];
+    }
+
+    /**
+     * @return array<string>
+     */
+    protected function getRoutes(): array
+    {
+        return [];
     }
 }
