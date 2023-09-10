@@ -91,6 +91,7 @@ class Settings extends Page implements HasForms
 
     public function getTitle(): string
     {
+       
         return __(config("filament-value-store.title"));
     }
 }
