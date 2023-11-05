@@ -66,7 +66,6 @@ class Settings extends Page implements HasForms
     {
         try {
             $this->validate();
-
             foreach ($this->data as $key => $data) {
                 Valuestore::make(
                     config('filament-value-store.path')
@@ -91,7 +90,7 @@ class Settings extends Page implements HasForms
 
     public function getTitle(): string
     {
-       
+
         return __(config("filament-value-store.title"));
     }
 }
