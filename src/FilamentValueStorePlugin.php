@@ -9,9 +9,10 @@ use Mstfkhazaal\FilamentValueStore\Pages\Settings;
 class FilamentValueStorePlugin implements Plugin
 {
     public $afterSave;
-    public array $fields = [];
-    public array $default = [];
 
+    public array $fields = [];
+
+    public array $default = [];
 
     public static function make(): static
     {
@@ -34,18 +35,21 @@ class FilamentValueStorePlugin implements Plugin
     public function setFormFields(array $fields): static
     {
         $this->fields = $fields;
+
         return $this;
     }
 
     public function setAfterSave($function): static
     {
         $this->afterSave = $function;
+
         return $this;
     }
 
     public function setDefaultFields(array $default): static
     {
         $this->default = $default;
+
         return $this;
     }
 
@@ -71,6 +75,4 @@ class FilamentValueStorePlugin implements Plugin
     {
         //
     }
-
-
 }

@@ -15,7 +15,9 @@ class Settings extends Page implements HasForms
     use InteractsWithForms;
 
     protected static ?string $navigationIcon = 'heroicon-o-cog';
+
     protected static string $view = 'filament-value-store::pages.settings';
+
     public array $data;
 
     public static function getNavigationGroup(): ?string
@@ -91,6 +93,6 @@ class Settings extends Page implements HasForms
     public function getTitle(): string
     {
 
-        return __(config("filament-value-store.title"));
+        return __(config('filament-value-store.title'));
     }
 }

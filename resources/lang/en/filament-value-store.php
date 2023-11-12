@@ -4,5 +4,5 @@
 return [
     'title' => 'Settings',
     'group' => 'Settings',
-    'label' => 'Settings'
+    'label' => 'Settings',
 ];
